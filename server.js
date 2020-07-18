@@ -8,6 +8,8 @@ var path = require("path");
 var app = express();
 var PORT = 8000;
 
+// Start server.
+// =============================================================
 app.listen(PORT, function () {
   console.log("App listening on PORT " + PORT);
 });
@@ -21,18 +23,30 @@ const waitList = [];
 
 //  HTML Routes
 app.get("/", function (req, res) {
-  res.send("Welcome to the Hot Restaurants page!");
+  res.sendfile(path.join(__dirname, "home.html"));
 });
 
-app.get("/api/tables/:", function (req, res) {
-  res.send("");
+app.get("/reserve/:", function (req, res) {
+  res.sendfile(path.join(__dirname, "reserve.html"));
 });
 
-//  API Routes
-app.get("/", function (req, res) {
-  res.send("Welcome to the Hot Restaurants page!");
+app.get("/table", function (req, res) {
+  re.sendfile(path.join(__dirname, "table.html"));
 });
 
+// API Routes
 app.get("/api/tables", function (req, res) {
-  res.send("");
+  return res.json(reservations);
 });
+
+app.get("/api/waitlist", function (req, res) {
+  return res.json(waitList);
+});
+
+for (var i = 0; reservations.length; i++) {
+  if (reservations === 5) {
+    return reservations;
+  } else {
+    return waitList;
+  }
+}
